@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Class in charge of writing the output CSV of the motivating example.
+ * Class in charge of writing the output CSV of the motivating example
  */
 public class CSVWriter {
     /**
@@ -24,7 +24,7 @@ public class CSVWriter {
     private final Path csv;
 
     /**
-     * Creates an CSVWriter instance. The constructor also creates the
+     * Creates a {@link CSVWriter} instance. The constructor also creates the
      * output file in the file system and all parent directories.
      *
      * @param csv {@link Path} to the output CSV file
@@ -86,7 +86,7 @@ public class CSVWriter {
      * @param line  string to be appended to the output CSV file
      * @throws IOException
      */
-    private synchronized void writeLine(String line) throws IOException {
+    private void writeLine(String line) throws IOException {
         writeLine(line, true);
     }
 
@@ -98,7 +98,7 @@ public class CSVWriter {
      *                previous content, false otherwise
      * @throws IOException
      */
-    private synchronized void writeLine(String line, boolean append) throws IOException {
+    private void writeLine(String line, boolean append) throws IOException {
         try (FileWriter fw = new FileWriter(csv.toFile(), append);
             BufferedWriter writer = new BufferedWriter(fw)) {
             writer.append(line);

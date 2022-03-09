@@ -19,4 +19,11 @@ public record MavenCoupgrade(
      * Class logger
      */
     private static final Logger logger = LogManager.getLogger(MavenCoupgrade.class);
+
+    @Override
+    public String toString() {
+        return String.format("Library %s:%s:%s-%s - Client %s:%s:%s-%s",
+            libGroupId, libArtifactId, libVersion1, libVersion2,
+            clientGroupId, clientArtifactId, clientVersion1, clientVersion2);
+    }
 }

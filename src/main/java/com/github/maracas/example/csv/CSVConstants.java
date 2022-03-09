@@ -1,8 +1,17 @@
 package com.github.maracas.example.csv;
 
+/**
+ * Set of CSV-related constants used in the project
+ */
 public class CSVConstants {
+    /**
+     * CSV file separator
+     */
     public static final String CSV_SEPARATOR = ",";
 
+    /**
+     * Array of the input CSV file headers
+     */
     public static final String[] INPUT_HEADER = new String[] {
         "l_group_id",
         "l_artifact_id",
@@ -14,6 +23,9 @@ public class CSVConstants {
         "c_version2"
     };
 
+    /**
+     * Array of the output CSV file headers
+     */
     public static final String[] OUTPUT_HEADER = new String[] {
         "l_group_id",
         "l_artifact_id",
@@ -27,5 +39,8 @@ public class CSVConstants {
         "broken_uses"
     };
 
+    /**
+     * This class is not supposed to be instantiated.
+     */
     private CSVConstants() {}
 }
