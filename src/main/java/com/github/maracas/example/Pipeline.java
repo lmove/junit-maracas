@@ -2,11 +2,14 @@ package com.github.maracas.example;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.github.maracas.example.csv.OutputCSVWriter;
+import com.github.maracas.example.csv.CSVReader;
+import com.github.maracas.example.csv.CSVWriter;
+import com.github.maracas.example.csv.MavenCoupgrade;
 
 /**
  * Motivating example pipeline
@@ -34,8 +37,13 @@ public class Pipeline {
      */
     public static void main(String[] args) {
         try {
-            OutputCSVWriter outputHandler = new OutputCSVWriter(Paths.get(OUTPUT_CSV));
-            outputHandler.writeDefaultHeader();
+            // Write header
+            CSVWriter writer = new CSVWriter(Paths.get(OUTPUT_CSV));
+            writer.writeDefaultHeader();
+
+            // Gather coupgrades
+            CSVReader reader = new CSVReader(Paths.get(INPUT_CSV));
+            Set<MavenCoupgrade> coupgrades = reader.readCoupgrades();
         } catch (IOException e) {
             logger.error(e);
         }

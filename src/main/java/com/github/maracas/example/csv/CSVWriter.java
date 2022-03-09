@@ -12,11 +12,11 @@ import org.apache.logging.log4j.Logger;
 /**
  * Class in charge of writing the output CSV of the motivating example.
  */
-public class OutputCSVWriter {
+public class CSVWriter {
     /**
      * Class logger
      */
-    private static final Logger logger = LogManager.getLogger(OutputCSVWriter.class);
+    private static final Logger logger = LogManager.getLogger(CSVWriter.class);
 
     /**
      * Path to the output CSV file
@@ -24,13 +24,13 @@ public class OutputCSVWriter {
     private final Path csv;
 
     /**
-     * Creates an OutputCSVWriter instance. The constructor also creates the
+     * Creates an CSVWriter instance. The constructor also creates the
      * output file in the file system and all parent directories.
      *
      * @param csv {@link Path} to the output CSV file
      * @throws IOException
      */
-    public OutputCSVWriter(Path csv) throws IOException {
+    public CSVWriter(Path csv) throws IOException {
         this.csv = csv;
         createNewFile();
     }
@@ -65,19 +65,7 @@ public class OutputCSVWriter {
      * @throws IOException
      */
     public void writeDefaultHeader() throws IOException {
-        String[] header = new String[] {
-            "l_group_id",
-            "l_artifact_id",
-            "l_version1",
-            "l_version2",
-            "c_group_id",
-            "c_artifact_id",
-            "c_version1",
-            "c_version2",
-            "bcs",
-            "broken_uses"
-        };
-        writeHeader(header);
+        writeHeader(CSVConstants.OUTPUT_HEADER);
     }
 
     /**
